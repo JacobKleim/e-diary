@@ -71,7 +71,7 @@ from scripts import create_commendation, fix_marks, remove_chastisements
 ```
 child = Schoolkid.objects.get(full_name__contains='Фролов Иван') вместо 'Фролов Иван' подставьте ФИО или ФИ нужного ученика.
 ```
-Далее передавайте child как аргумент функции в поле schoolkid в нужный скрипты для получения результата:
+Далее передавайте child как аргумент функции в поле schoolkid в нужный скрипт для получения результата:
 
 ```
 create_commendation(child, 'Музыка')
