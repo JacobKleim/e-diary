@@ -59,9 +59,12 @@
 ```
 python manage.py shell
 ```
-Далее импортируйте один или несколько необходимых скриптов:
+Далее импортируйте один или несколько необходимых скриптов и модель `Schoolkid`:
 ```
 from scripts import create_commendation, fix_marks, remove_chastisements
+```
+```
+from datacenter.models import Schoolkid
 ```
 
 ### Инициализация экземпляря модели `Schoolkid`: 
@@ -76,7 +79,12 @@ child = Schoolkid.objects.get(full_name__contains='Фролов Иван') вм�
 ```
 create_commendation(child, 'Музыка')
 ```
-
+```
+fix_marks(child)
+```
+```
+remove_chastisements(child)
+```
 
 
 
