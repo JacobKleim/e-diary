@@ -5,18 +5,12 @@ from datacenter.models import Chastisement, Commendation, Lesson, Mark
 
 def fix_marks(schoolkid):
     bad_marks = [2, 3]
-    child_bad_marks = Mark.objects.filter(schoolkid=schoolkid,
-                                          points__in=bad_marks)
-    for mark in child_bad_marks:
-        mark.points = 5
-        mark.save()
+    Mark.objects.filter(schoolkid=schoolkid,
+                        points__in=bad_marks).update(points=5)
 
 
 def remove_chastisements(schoolkid):
-    child_chastisements = Chastisement.objects.filter(schoolkid=schoolkid)
-
-    for chastisement in child_chastisements:
-        chastisement.delete()
+    Chastisement.objects.filter(schoolkid=schoolkid).delete()
 
 
 def create_commendation(schoolkid, subject_title=None):
