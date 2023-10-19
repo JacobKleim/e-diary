@@ -64,9 +64,6 @@ python manage.py shell
 ```
 from scripts import create_commendation, fix_marks, get_schoolkid, remove_chastisements
 ```
-```
-from datacenter.models import Schoolkid
-```
 
 ### Инициализация экземпляря модели `Schoolkid` и использование скриптов: 
 
