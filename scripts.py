@@ -1,7 +1,6 @@
 import random
 
-from datacenter.models import (Chastisement, Commendation, Lesson, Mark,
-                               Subject)
+from datacenter.models import Chastisement, Commendation, Lesson, Mark
 
 
 def fix_marks(schoolkid):
@@ -21,15 +20,6 @@ def remove_chastisements(schoolkid):
 
 
 def create_commendation(schoolkid, subject_title=None):
-
-    if not subject_title:
-        subjects = Subject.objects.filter(
-            year_of_study=schoolkid.year_of_study
-            )
-        subjects_copy = list(subjects)
-        subject = random.choice(subjects_copy)
-        subject_title = subject.title
-
     compliments = ['Молодец!', 'Отличная работа на уроке!']
     text = random.choice(compliments)
 
