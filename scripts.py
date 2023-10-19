@@ -1,3 +1,4 @@
+from django.http import Http404
 import random
 
 from datacenter.models import (Chastisement, Commendation, Lesson, Mark,
@@ -5,7 +6,10 @@ from datacenter.models import (Chastisement, Commendation, Lesson, Mark,
 
 
 def get_schoolkid(child_name):
-    return Schoolkid.objects.get(full_name__contains=child_name)
+    try:
+        return Schoolkid.objects.get(full_name__contains=child_name)
+    except Schoolkid.DoesNotExist:
+        raise Http404('Ученик не найден')
 
 
 def fix_marks(schoolkid):
