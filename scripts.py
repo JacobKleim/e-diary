@@ -4,6 +4,8 @@ import random
 from datacenter.models import (Chastisement, Commendation, Lesson, Mark,
                                Schoolkid)
 
+COMPLIMENTS = ['Молодец!', 'Отличная работа на уроке!']
+
 
 def get_schoolkid(child_name):
     try:
@@ -23,8 +25,7 @@ def remove_chastisements(schoolkid):
 
 
 def create_commendation(schoolkid, subject_title):
-    compliments = ['Молодец!', 'Отличная работа на уроке!']
-    text = random.choice(compliments)
+    text = random.choice(COMPLIMENTS)
 
     lessons = Lesson.objects.filter(year_of_study=schoolkid.year_of_study,
                                     group_letter=schoolkid.group_letter,
